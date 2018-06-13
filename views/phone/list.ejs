@@ -1,0 +1,40 @@
+<br>
+<h1 class="display-8" style="text-align: center">Add phone</h1>
+<form method="post" action="/phone/create">
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input name="lastName" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="number">Number</label>
+        <input type="number" name="number" class="form-control"></textarea>
+    </div>
+    <input type="submit" value="Submit" class="btn btn-primary" style="margin-left: 40%; margin-right: 40%">
+</form>
+<br><br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Number</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% phones.forEach(function(phone){ %>
+            <tr>
+                <td><%= phone.firstName %></td>
+                <td><%= phone.lastName %></td>
+                <td><%= phone.number %></td>
+                <td>
+                    <a href="/phone/delete/<%= phone.id %>" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
